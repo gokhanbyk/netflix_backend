@@ -22,5 +22,8 @@ urlpatterns = [
     #* Main App:
     path('', include('main.urls')),
 
+    #* User App:
+    path('user/', include('user.urls')),
+
     path('admin/', admin.site.urls),
 ]
