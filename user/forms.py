@@ -24,3 +24,6 @@ class UserRegisterForm(UserCreationForm):
         self.fields['email'].widget = widgets.EmailInput(attrs={'class': 'form-control', 'placeholder': 'example@gmail.com'})
         self.fields['password1'].widget = widgets.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Password'})
         self.fields['password2'].widget = widgets.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Password Again'})
+
+        for fieldname in ['username', 'email', 'password1', 'password2']:
+            self.fields[fieldname].help_text = None
