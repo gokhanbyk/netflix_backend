@@ -6,7 +6,7 @@ from django.contrib.auth import authenticate, login
 def login_view(request):
 
     if request.user.is_authenticated:
-        return redirect('index_page')
+        return redirect('profile_page')
 
     if request.method == 'POST':
         form = UserLoginForm(request, data = request.POST)
@@ -19,7 +19,7 @@ def login_view(request):
 
             if user is not None:
                 login(request, user)
-                return redirect('index_page')
+                return redirect('profile_page')
             else:
                 return render(request, 'login.html', {
                     'form': form,
@@ -40,7 +40,7 @@ def login_view(request):
 def register_view(request):
 
     if request.user.is_authenticated:
-        return redirect('index_page')
+        return redirect('profile_page')
 
     if request.method == 'POST':
         form = UserRegisterForm(request.POST)
@@ -53,7 +53,7 @@ def register_view(request):
 
             user = authenticate(request, username = username, password = password)
             login(request, user)
-            return redirect('index_page')
+            return redirect('profile_page')
         else:
             return render(request, 'register.html', {
                 'form': form
@@ -63,3 +63,9 @@ def register_view(request):
     return render(request, 'register.html', {
         'form': form
     })
+
+
+
+def profile_page_view(request):
+
+    return render(request, 'profile_view.html', {})
