@@ -2,9 +2,33 @@
 
 {% block content %}
 
-<div class="bg-black" style="min-height: 100vh;">
+<div class="bg-black d-flex justify-content-center align-items-center" style="min-height: 100vh;">
 
+    <div class="profiles text-white text-center">
+        <h3 class="fs-1">Kim İzliyor?</h3>
 
+        <div class="profiller d-flex justify-content-center align-items-center gap-3 mt-4">
+            {% for profile in profiles %}
+                <div class="profil">
+                    <a href="" class="text-decoration-none text-white">
+                        <img src="{{ profile.image.url }}" width="200px" height="200px"  alt="">
+                        <p class="fs-3">{{ profile.name }}</p>
+                    </a>
+                </div>
+            {% endfor %}
+            
+            <div class="ekle">
+                <a href="{% url "profile_add_page" %}" class="text-white text-decoration-none">
+                    <div class="circle d-flex justify-content-center align-items-center" style="width:200px; height: 200px;">
+                        <i class="fa-solid fa-circle-plus" style="font-size: 80px;"></i>
+                    </div>
+                    <p class="fs-3">Profil Ekle</p>
+                </a>
+            </div>
+
+        </div>
+
+    </div>
 
 </div>
 
