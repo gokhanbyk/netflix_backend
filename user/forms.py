@@ -2,6 +2,7 @@ from django import forms
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.forms import widgets
 from django.contrib.auth.models import User
+from .models import *
 
 
 class UserLoginForm(AuthenticationForm):
@@ -27,3 +28,14 @@ class UserRegisterForm(UserCreationForm):
 
         for fieldname in ['username', 'email', 'password1', 'password2']:
             self.fields[fieldname].help_text = None
+
+class UserProfileForm(forms.ModelForm):
+    class Meta:
+        model = Profile
+        fields = ('name', 'image')
+
+    def __init__(self,*args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        self.fields['name'].widget = widgets.TextInput(attrs={'class': 'form-control', 'placeholder': 'Profil ismi'})
+        self.fields['image'].widget = widgets.FileInput(attrs={'class': 'form-control'})
