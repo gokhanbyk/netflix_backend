@@ -114,3 +114,16 @@ def profile_edit_view(request, profile_slug):
         return render(request, 'profile_edit.html', {
             'form': form
         })
+    
+
+def profile_delete_view(request, profile_slug):
+
+    profile = Profile.objects.get(slug = profile_slug)
+    
+    if request.method == 'POST':
+        profile.delete()
+        return redirect('profile_page')
+    else:
+        return render(request, 'profile_delete.html', {
+            'profile': profile
+        })

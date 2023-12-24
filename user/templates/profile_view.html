@@ -17,6 +17,9 @@
                     <div>
                         <a href="{% url "profile_edit_page" profile.slug %}" class="btn btn-warning w-100">Düzenle</a>
                     </div>
+                    <div>
+                        <a href="{% url "profile_delete_page" profile.slug %}" class="btn btn-danger w-100 mt-2">Sil</a>
+                    </div>
                 </div>
             {% endfor %}
             
@@ -27,6 +30,12 @@
                     </div>
                     <p class="fs-3">Profil Ekle</p>
                 </a>
+                <div>
+                    <a href="" class="btn btn-danger w-100 mt-2 invisible">Sil</a>
+                </div>
+                <div>
+                    <a href="" class="btn btn-danger w-100 mt-2 invisible">Sil</a>
+                </div>
             </div>
 
         </div>
