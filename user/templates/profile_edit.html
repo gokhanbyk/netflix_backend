@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+
+{% block content %}
+
+
+<div class="bg-black d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+
+    <div class="profiles text-white w-25">
+        <h3 class="fs-1 text-center">Profil Düzenle</h3>
+        <hr>
+
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            {{form}}
+
+            <input type="submit" value="Kaydet" class="btn btn-danger w-100 mt-3">
+        </form>
+
+        <a href="{% url "profile_page" %}" class="btn btn-secondary w-100 mt-3">Geri Dön</a>
+
+        <hr>
+    </div>
+
+</div>
+
+{% endblock content %}
